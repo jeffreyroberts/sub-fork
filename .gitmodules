@@ -1,3 +1,6 @@
 [submodule "dashboard"]
 	path = dashboard
 	url = https://github.com/cakephp/cakephp.git
+[submodule "plugins/blank.skel"]
+	path = plugins/blank.skel
+	url = https://github.com/37signals/sub.git
