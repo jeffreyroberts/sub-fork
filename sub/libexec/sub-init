@@ -49,6 +49,8 @@ if [ -z "$print" ]; then
     echo "# the following to ${profile}:"
     echo
     echo "eval \"\$(${_SUB_ROOT}/bin/sub init -)\""
+    echo ". ${_SUB_ROOT}/libexec/sub-plugins"
+    echo 
     echo
   } >&2
 
