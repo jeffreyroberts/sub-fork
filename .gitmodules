@@ -4,3 +4,6 @@
 [submodule "plugins/blank.skel"]
 	path = plugins/blank.skel
 	url = https://github.com/37signals/sub.git
+[submodule "plugins/cronski"]
+	path = plugins/cronski
+	url = git@github.com:jroberts0001/cronski.git
