@@ -13,23 +13,23 @@ ENVNAME="$(echo $NAME | tr '[a-z-]' '[A-Z_]')_ROOT"
 echo "Preparing your '$SUBNAME' sub!"
 
 if [ "$NAME" != "sub" ]; then
-  rm bin/sub
-  mv share/sub share/$SUBNAME
+  rm sb/bin/sub
+  mv sb/share/sub sb/share/$SUBNAME
 
-  for file in **/sub*; do
+  for file in *sb/*/sub*; do
     sed "s/sub/$SUBNAME/g;s/SUB_ROOT/$ENVNAME/g" "$file" > $(echo $file | sed "s/sub/$SUBNAME/")
     rm $file
   done
-
-  for file in libexec/*; do
+exit
+  for file in sb/libexec/*; do
     chmod a+x $file
   done
 
-  ln -s ../libexec/$SUBNAME bin/$SUBNAME
+  ln -s sb/../libexec/$SUBNAME sb/bin/$SUBNAME
 fi
 
-rm README.md
-rm prepare.sh
+rm sb/README.md
+rm sb/prepare.sh
 
 echo "Done! Enjoy your new sub! If you're happy with your sub, run:"
 echo
