@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
+mv sub sb
+
 NAME="$1"
 if [ -z "$NAME" ]; then
   echo "usage: prepare.sh NAME_OF_YOUR_SUB" >&2
@@ -30,6 +32,8 @@ fi
 
 rm sb/README.md
 rm sb/prepare.sh
+
+mv sb sub
 
 echo "Done! Enjoy your new sub! If you're happy with your sub, run:"
 echo
