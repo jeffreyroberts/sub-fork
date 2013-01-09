@@ -22,30 +22,31 @@ if [ "$NAME" != "sub" ]; then
     sed "s/sub/$SUBNAME/g;s/SUB_ROOT/$ENVNAME/g" "$file" > $(echo $file | sed "s/sub/$SUBNAME/")
     rm $file
   done
-exit
+
   for file in sb/libexec/*; do
     chmod a+x $file
   done
 
-  ln -s sb/../libexec/$SUBNAME sb/bin/$SUBNAME
+  rm sb/README.md
+  rm prepare.sh
+
+  mv sb sub
+
+  ln -s ../libexec/$SUBNAME sub/bin/$SUBNAME
+
+  echo "Done! Enjoy your new sub! If you're happy with your sub, run:"
+  echo
+  echo "    rm -rf .git"
+  echo "    git init"
+  echo "    git add ."
+  echo "    git commit -m 'Starting off $SUBNAME'"
+  echo "    ./sub/bin/$SUBNAME init"
+  echo
+  echo "Made a mistake? Want to make a different sub? Run:"
+  echo
+  echo "    git add ."
+  echo "    git checkout -f"
+  echo
+  echo "Thanks for making a sub!"
+
 fi
-
-rm sb/README.md
-rm sb/prepare.sh
-
-mv sb sub
-
-echo "Done! Enjoy your new sub! If you're happy with your sub, run:"
-echo
-echo "    rm -rf .git"
-echo "    git init"
-echo "    git add ."
-echo "    git commit -m 'Starting off $SUBNAME'"
-echo "    ./bin/$SUBNAME init"
-echo
-echo "Made a mistake? Want to make a different sub? Run:"
-echo
-echo "    git add ."
-echo "    git checkout -f"
-echo
-echo "Thanks for making a sub!"
